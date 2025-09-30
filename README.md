@@ -1,0 +1,129 @@
+# 隨機 ID 產生器
+
+一個功能豐富的隨機 ID 產生器，可以產生各種格式的隨機帳號 ID。
+
+## 功能特色
+
+- **多種組合模式**：支援名字+名詞、名詞+名字、名詞+名詞的組合
+- **單詞截斷**：可選的單詞截斷功能，增加 ID 的多樣性
+- **字符替換**：支援將字母替換為相似數字（如 a→4, e→3）
+- **底線插入**：隨機在 ID 中插入單一底線
+- **數字添加**：支援在 ID 中間或末尾添加數字
+- **大小寫樣式**：支援全小寫或首字母大寫格式
+
+## 安裝需求
+
+- Python 3.6 或更高版本
+
+## 檔案結構
+
+```
+random_id_generator/
+├── main.py          # 主要程式檔案
+├── config.py        # 配置檔案
+├── random_ids.txt   # 產生的 ID 輸出檔案
+└── README.md        # 說明文件
+```
+
+## 使用方法
+
+### 基本使用
+
+直接執行主程式來生成 1000 個隨機 ID：
+
+```bash
+python3 main.py
+```
+
+### 自訂配置
+
+編輯 `config.py` 檔案來調整生成參數：
+
+
+### 程式化使用
+
+```python
+from main import generate_random_id, save_ids_to_file
+
+# 生成單一 ID
+random_id = generate_random_id()
+print(random_id)
+
+# 生成多個 ID 並儲存到檔案
+save_ids_to_file("my_ids.txt", 500)
+```
+
+## 配置選項說明
+
+### 數字位置
+- `add_numbers_between_words: True` - 數字會插入在兩個單詞之間
+- `add_numbers_between_words: False` - 數字會添加在 ID 末尾
+
+### 單詞截斷
+- `truncate_words: True` - 隨機截斷單詞的開頭、結尾或兩端
+- `truncate_words: False` - 保持單詞完整
+
+### 底線添加
+- `add_underscores: True` - 20% 機率在 ID 中插入單一底線
+- `add_underscores: False` - 不添加底線
+
+### 字符替換
+- `use_character_substitution: True` - 30% 機率將字母替換為相似數字
+- `use_character_substitution: False` - 不進行字符替換
+
+### 大小寫樣式
+- `case_style: "lowercase"` - 全部轉為小寫
+- `case_style: "capitalize"` - 每個單詞首字母大寫
+
+## 字符替換對照表
+
+| 字母 | 數字 | 字母 | 數字 |
+|------|------|------|------|
+| a    | 4    | l    | 1    |
+| e    | 3    | z    | 2    |
+| i    | 1    | b    | 8    |
+| o    | 0    | g    | 9    |
+| s    | 5    | t    | 7    |
+
+## 輸出範例
+
+```
+生成的隨機 ID 範例:
+elloc
+pe_nflower
+idi85untain
+to7393race
+h_annah4721key
+natin9687
+meadowive24
+katbag8355
+adh_il
+veal2699
+```
+
+## 自訂單詞列表
+
+您可以編輯 `config.py` 中的 `names` 和 `nouns` 列表來添加自己的單詞：
+
+```python
+names = [
+    "Alice", "Bob", "Charlie", # 添加更多名字
+    # ...
+]
+
+nouns = [
+    "Tree", "River", "Mountain", # 添加更多名詞
+    # ...
+]
+```
+
+## 注意事項
+
+- 生成的 ID 會自動儲存到 `random_ids.txt` 檔案
+- 每次執行都會覆蓋之前的輸出檔案
+- 單詞截斷功能會確保截斷後的單詞長度至少為 1 個字符
+- 底線插入位置是隨機的，但不會在 ID 的開頭或結尾
+
+## 授權
+
+此專案為開源軟體，可自由使用和修改。
