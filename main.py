@@ -40,18 +40,13 @@ def add_underscores(text):
     if not config["add_underscores"] or random.random() > 0.2:  # 20% 的機率添加底線
         return text
     
-    # 決定添加一個底線還是兩個連在一起的底線
-    underscore_type = random.choice(['single', 'double'])
-    
     if len(text) <= 2:
         return text
     
     position = random.randint(1, len(text) - 1)
     
-    if underscore_type == 'single':
-        return text[:position] + '_' + text[position:]
-    else:  # double
-        return text[:position] + '__' + text[position:]
+    # 只添加單一底線
+    return text[:position] + '_' + text[position:]
 
 def apply_case_style(text):
     """根據配置選項應用大小寫樣式"""
