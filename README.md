@@ -21,7 +21,7 @@
 random_id_generator/
 ├── main.py          # 主要程式檔案
 ├── config.py        # 配置檔案
-├── random_ids.txt   # 產生的 ID 輸出檔案
+├── random_id.txt   # 產生的 ID 輸出檔案
 └── README.md        # 說明文件
 ```
 
@@ -37,7 +37,7 @@ python3 main.py
 
 ### 自訂配置
 
-編輯 `config.py` 檔案來調整生成參數：
+編輯 `config.py` 檔案來調整組合模式、字符替換和大小寫樣式等參數。
 
 
 ### 程式化使用
@@ -53,27 +53,14 @@ print(random_id)
 save_ids_to_file("my_ids.txt", 500)
 ```
 
-## 配置選項說明
+## 主要配置選項
 
-### 數字位置
-- `add_numbers_between_words: True` - 數字會插入在兩個單詞之間
-- `add_numbers_between_words: False` - 數字會添加在 ID 末尾
-
-### 單詞截斷
-- `truncate_words: True` - 隨機截斷單詞的開頭、結尾或兩端
-- `truncate_words: False` - 保持單詞完整
-
-### 底線添加
-- `add_underscores: True` - 20% 機率在 ID 中插入單一底線
-- `add_underscores: False` - 不添加底線
-
-### 字符替換
-- `use_character_substitution: True` - 30% 機率將字母替換為相似數字
-- `use_character_substitution: False` - 不進行字符替換
-
-### 大小寫樣式
-- `case_style: "lowercase"` - 全部轉為小寫
-- `case_style: "capitalize"` - 每個單詞首字母大寫
+- **組合模式**：名字+名詞、名詞+名字、名詞+名詞
+- **數字位置**：可插入在單詞之間或 ID 末尾
+- **單詞截斷**：可選的單詞截斷功能
+- **底線添加**：隨機插入單一底線
+- **字符替換**：字母替換為相似數字
+- **大小寫樣式**：全小寫或首字母大寫
 
 ## 字符替換對照表
 
@@ -103,25 +90,12 @@ veal2699
 
 ## 自訂單詞列表
 
-您可以編輯 `config.py` 中的 `names` 和 `nouns` 列表來添加自己的單詞：
-
-```python
-names = [
-    "Alice", "Bob", "Charlie", # 添加更多名字
-    # ...
-]
-
-nouns = [
-    "Tree", "River", "Mountain", # 添加更多名詞
-    # ...
-]
-```
+您可以編輯 `config.py` 中的 `names` 和 `nouns` 列表來添加自己的單詞。
 
 ## 注意事項
 
-- 生成的 ID 會自動儲存到 `random_ids.txt` 檔案
+- 生成的 ID 會自動儲存到 `random_id.txt` 檔案
 - 每次執行都會覆蓋之前的輸出檔案
-- 單詞截斷功能會確保截斷後的單詞長度至少為 1 個字符
 - 底線插入位置是隨機的，但不會在 ID 的開頭或結尾
 
 ## 授權

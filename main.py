@@ -136,7 +136,7 @@ def save_ids_to_file(filename, count):
 
 # 使用範例
 if __name__ == "__main__":
-    save_ids_to_file("random_ids.txt", 1000)  # 生成 1000 個隨機帳號 ID
+    save_ids_to_file("random_id.txt", 1000)  # 生成 1000 個隨機帳號 ID
     
     # 顯示一些範例
     print("生成的隨機 ID 範例:")
